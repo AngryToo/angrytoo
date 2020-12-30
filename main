@@ -64,7 +64,7 @@
                   </tr>
                   <tr>
                     <td><div><b data-key="KEY_LEVEL_UP">N</b><span> - </span>level up</div></td>
-                    <td><div><b data-key="KEY_REVERSE_TANK">V</b><span> - </span>reverse tank</div></td>
+                    <td><div><b data-key="KEY_REVERSE_TANK">V</b><span> - </span>reverse </div></td>
                     <td><div><b data-key="KEY_REVERSE_MOUSE">B</b><span> - </span>reverse mouse</div></td>
                   </tr>
                   <tr>
@@ -106,10 +106,10 @@
                 <option value="natural">Natural</option>
                 <option value="classic">Classic</option>
                 <option value="pumpkin">Pumpkin Skeleton (Fan-made)</option>
-                <option value="forest">Forest (Fan-made)</option>
+                <option value=""> (Fan-made)</option>
                 <option value="midnight">Midnight (Fan-made)</option>
                 <option value="pastel">Snow (Fan-made)</option>
-                <option value="ocean">Coral Reef (Fan-made)</option>
+                <option value="">Coral Reef (Fan-made)</option>
                 <option value="badlands">Badlands (Fan-made)</option>
                 <option value="bleach">Bleach (Fan-made)</option>
                 <option value="custom">Custom</option>
@@ -192,7 +192,7 @@
       colno: colno,
       error: error
     })
-    prompt('The game may have crashed, refresh the page to recover from error. If this is a private server, make sure to check the changelog for any server updates. Error information:', e)
+    prompt('The game may have crashed, refresh the page to recover from error. If this is a private server, make sure to  the changelog for any server updates. Error information:', e)
   }
   </script>
   <script src="./bundle.js"></script>
