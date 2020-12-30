@@ -39,7 +39,7 @@
     };
     I.stringPadding = function(r, p) {
         r = void 0 !== r ? String(r) : " ";
-        return 0 < p && r ? r.repeat(Math.ceil(p / r.length)).substring(0, p) : ""
+        return 0 < p && r ? r.repeat(.ceil(p / r.length)).substring(0, p) : ""
     };
     I.polyfill("String.prototype.padStart", function(r) {
         return r ? r : function(p, w) {
@@ -72,7 +72,7 @@
             a instanceof String && (a = String(a));
             var e = a.length;
             w = w || 0;
-            for (0 > w && (w = Math.max(w + e, 0)); w < e; w++) {
+            for (0 > w && (w = .max(w + e, 0)); w < e; w++) {
                 var E = a[w];
                 if (E === p || Object.is(E, p)) return !0
             }
@@ -208,7 +208,7 @@
                     case 35:
                         return "#ffd300";
                     case 36:
-                        return '#' + Math.floor(Math.random() * 16777215).toString(16);
+                        return '#' + .floor(.random() * 16777215).toString(16);
                     default:
                         return "#ff0000"
                 }
@@ -285,7 +285,7 @@
                             getFade: () => 1,
                             getColor: () => "#FFFFFF",
                             getBlend: () => 0,
-                            health: {
+                            : {
                                 get: () => 1
                             },
                             shield: {
@@ -333,7 +333,7 @@
                     },
                     get: () => {
                         let h = (Date.now() - d) / 1E3;
-                        return a = h < n ? y + (b - y) * Math.pow(h /
+                        return a = h < n ? y + (b - y) * .pow(h /
                             n, 1 / c) : b
                     }
                 }
@@ -356,7 +356,7 @@
                     h = h.slice(c + 1);
                     let n = h.charCodeAt(0) / 255;
                     h = h.slice(1);
-                    let f = Math.floor(h.length / 3);
+                    let f = .floor(h.length / 3);
                     if (2 > f) return null;
                     c = [];
                     for (let b = 0; b < f; b++) {
@@ -368,7 +368,7 @@
                     }
                     return {
                         name: d,
-                        author: a,
+                        : a,
                         content: {
                             teal: c[0],
                             lgreen: c[1],
@@ -400,7 +400,7 @@
                     if ("object" !== typeof d) return null;
                     let {
                         name: c = "Unknown Theme",
-                        author: a = "",
+                        : a = "",
                         content: f
                     } = d;
                     for (let b of [f.teal, f.lgreen, f.orange, f.yellow, f.lavender,
@@ -410,7 +410,7 @@
                     return {
                         isJSON: !0,
                         name: "string" === typeof c && c || "Unknown Theme",
-                        author: "string" === typeof a && a || "",
+                        : "string" === typeof a && a || "",
                         content: f
                     }
                 } catch (h) {}
@@ -420,13 +420,13 @@
             function v(b) {
                 let {
                     name: d = "Unknown Theme",
-                    author: c = "",
+                    : c = "",
                     content: h
                 } = b;
                 ({
                     border: b
                 } = h);
-                b = d + "\x00" + c + "\x00" + String.fromCharCode(1 <= b ? 255 : 0 > b ? 0 : Math.floor(256 * b));
+                b = d + "\x00" + c + "\x00" + String.fromCharCode(1 <= b ? 255 : 0 > b ? 0 : .floor(256 * b));
                 for (let d of [h.teal, h.lgreen, h.orange, h.yellow,
                         h.lavender, h.pink, h.vlgrey, h.lgrey, h.guiwhite, h.black, h.blue, h.green, h.red, h.gold, h.purple, h.magenta, h.grey, h.dgrey, h.white, h.guiblack
                     ]) {
@@ -439,12 +439,12 @@
             function t() {
                 if (!ua) {
                     ua = !0;
-                    if (b.mobile) {
+                    if (b.) {
                         var d = document.body;
                         d.requestFullscreen ? d.requestFullscreen() : d.msRequestFullscreen ? d.msRequestFullscreen() : d.mozRequestFullScreen ? d.mozRequestFullScreen() : d.webkitRequestFullscreen && d.webkitRequestFullscreen();
                         d = window.navigator.standalone ||
                             window.matchMedia && window.matchMedia("(display-mode: fullscreen), (display-mode: standalone), (display-mode: minimal-ui)").matches;
-                        b.mobile && !d && Y.push({
+                        b. && !d && Y.push({
                             text: "Add the game to home screen to always enable fullscreen!",
                             status: 2,
                             alpha: 0,
@@ -466,7 +466,7 @@
                     H.submitToLocalStorage("optAutoLevel");
                     b.autoLevel = document.getElementById("optAutoLevel").checked;
                     H.submitToLocalStorage("optBorders");
-                    b.mobile && H.submitToLocalStorage("optMobile");
+                    b. && H.submitToLocalStorage("optMobile");
                     switch (document.getElementById("optBorders").value) {
                         case "normal":
                             B.graphical.darkBorders =
@@ -514,7 +514,7 @@
                         c();
                         b.socket = Pa()
                     }
-                    U.init(b.mobile ? document.getElementById("optMobile").value : "desktop", b.socket);
+                    U.init(b. ? document.getElementById("optMobile").value : "desktop", b.socket);
                     setInterval(() => ya.iterate(b.socket.cmd.getMotion()), 1E3 / 30);
                     document.getElementById("gameCanvas").focus();
                     b.animLoopHandle || za();
@@ -535,14 +535,14 @@
 
             function ja(b, a, c, h = !1) {
                 g.beginPath();
-                g.arc(b, a, c, 0, 2 * Math.PI, !1);
+                g.arc(b, a, c, 0, 2 * .PI, !1);
                 h ? g.stroke() : g.fill()
             }
 
             function ka(b, a, c, h) {
                 g.beginPath();
-                g.lineTo(Math.round(b) + .5, Math.round(a) + .5);
-                g.lineTo(Math.round(c) + .5, Math.round(h) + .5);
+                g.lineTo(.round(b) + .5, .round(a) + .5);
+                g.lineTo(.round(c) + .5, .round(h) + .5);
                 g.stroke()
             }
 
@@ -565,7 +565,7 @@
                     h = M[c.index];
                     h = f / h.size * h.realSize;
                     if (c.drawsHealth) {
-                        let n = c.render.health.get(),
+                        let n = c.render..get(),
                             y = c.render.shield.get();
                         if (1 >
                             n || 1 > y) {
@@ -627,7 +627,7 @@
                     non_interaction: !0
                 })
             });
-            /*(window.localStorage && window.localStorage.adForce ? "aip" === window.localStorage.adForce : .1 <= Math.random()) ? (aiptag.cmd.display.push(function() {
+            /*(window.localStorage && window.localStorage.adForce ? "aip" === window.localStorage.adForce : .1 <= .random()) ? (aiptag.cmd.display.push(function() {
                 aipDisplayTag.display("arras-io_336x280")
             }), window.adServiceMode = "aip") : ((adsbygoogle = window.adsbygoogle || []).push({}), window.adServiceMode = "google");*/
             var B = {
@@ -682,9 +682,9 @@
                                 n = y;
                                 f = !0
                             },
-                            check: c => {
-                                let h = Math.round(c.x - b);
-                                c = Math.round(c.y - d);
+                            : c => {
+                                let h = .round(c.x - b);
+                                c = .round(c.y - d);
                                 return f && 0 <= h && 0 <= c && h <= a && c <= n
                             },
                             hide: () => {
@@ -703,7 +703,7 @@
                             hide: () => {
                                 for (let b of d) b.hide()
                             },
-                            check: b => d.findIndex(c => c.check(b))
+                            : b => d.findIndex(c => c.(b))
                         }
                     }
                 })();
@@ -755,7 +755,7 @@
                         }
                     }
                     get() {
-                        let b = Math.min(1, (Date.now() - this.lastUpdate) / this.speed),
+                        let b = .min(1, (Date.now() - this.lastUpdate) / this.speed),
                             a = 1 - b;
                         return Object.values(this.map).map(({
                             old: c,
@@ -864,70 +864,70 @@
                     getStatNames: b => {
                         switch (b) {
                             case 1:
-                                return "Body Damage;Max Health;Bullet Speed;Bullet Health;Bullet Penetration;Bullet Damage;Engine Acceleration;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Bullet Speed;Bullet ;Bullet Penetration;Bullet Damage;Engine Acceleration;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             case 2:
-                                return "Body Damage;Max Health;Drone Speed;Drone Health;Drone Penetration;Drone Damage;Respawn Rate;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Drone Speed;Drone ;Drone Penetration;Drone Damage;Respawn Rate;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             case 3:
-                                return "Body Damage;Max Health;Drone Speed;Drone Health;Drone Penetration;Drone Damage;Max Drone Count;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Drone Speed;Drone ;Drone Penetration;Drone Damage;Max Drone Count;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             case 4:
-                                return "Body Damage;Max Health;Swarm Speed;Swarm Health;Swarm Penetration;Swarm Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Swarm Speed;Swarm ;Swarm Penetration;Swarm Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             case 5:
-                                return "Body Damage;Max Health;Placement Speed;Trap Health;Trap Penetration;Trap Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Placement Speed;Trap ;Trap Penetration;Trap Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             case 6:
-                                return "Body Damage;Max Health;Weapon Speed;Weapon Health;Weapon Penetration;Weapon Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
+                                return "Body Damage;Max ;Weapon Speed;Weapon ;Weapon Penetration;Weapon Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";");
                             default:
-                                return "Body Damage;Max Health;Bullet Speed;Bullet Health;Bullet Penetration;Bullet Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";")
+                                return "Body Damage;Max ;Bullet Speed;Bullet ;Bullet Penetration;Bullet Damage;Reload;Movement Speed;Shield Regeneration;Shield Capacity".split(";")
                         }
                     },
                     skills: [{
                         amount: 0,
                         color: "purple",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "pink",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "blue",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "lgreen",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "red",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "yellow",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "green",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "teal",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "gold",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }, {
                         amount: 0,
                         color: "orange",
-                        cap: 1,
+                        : 1,
                         softcap: 1
                     }],
                     points: 0,
@@ -943,15 +943,15 @@
                                 d ? (h.set(d), a > h.get() && (a = c = 0)) : (b = 3, a = c = 0, h = q(0, 10))
                             },
                             update: () => {
-                                b = Math.ceil(1.8 * Math.pow(c + 1, 1.8) - 2 * c + 1) || 0;
+                                b = .ceil(1.8 * .pow(c + 1, 1.8) - 2 * c + 1) || 0;
                                 if (h.get() >= a + b) a += b, c++;
                                 else if (h.get() < a) {
                                     var d = c - 1;
-                                    a -= Math.ceil(1.8 * Math.pow(d + 1, 1.8) - 2 * d + 1) || 0;
+                                    a -= .ceil(1.8 * .pow(d + 1, 1.8) - 2 * d + 1) || 0;
                                     c--
                                 }
                             },
-                            getProgress: () => b ? Math.min(1, Math.max(0, (h.get() - a) / b)) : 0,
+                            getProgress: () => b ? .min(1, .max(0, (h.get() - a) / b)) : 0,
                             getScore: () => h.get(),
                             getLevel: () => c
                         }
@@ -965,7 +965,7 @@
             b.clearUpgrades = () => {
                 A.upgrades = []
             };
-            var ma = () => Math.max(b.screenWidth / z.renderv, b.screenHeight / z.renderv / 9 * 16);
+            var ma = () => .max(b.screenWidth / z.renderv, b.screenHeight / z.renderv / 9 * 16);
             b.canUpgrade = !1;
             b.canSkill = !1;
             b.message =
@@ -981,8 +981,8 @@
                     var a = b.servers.filter(b => null != b.visible && b.visible <= Ha && b.prefer);
                     let e = Infinity,
                         c = [];
-                    for (let d of a)[, a] = d.code.split("-"), a = Math.abs(((b.codeTable[1][a][1] - b.timezone) % 24 + 36) % 24 - 12), a < e ? (c = [d], e = a) : a === e && c.push(d);
-                    return c[Math.floor(Math.random() * c.length)]
+                    for (let d of a)[, a] = d.code.split("-"), a = .abs(((b.codeTable[1][a][1] - b.timezone) % 24 + 36) % 24 - 12), a < e ? (c = [d], e = a) : a === e && c.push(d);
+                    return c[.floor(.random() * c.length)]
                 };
             b.server = (a => {
                 a.startsWith("#") && (a = a.slice(1));
@@ -1136,7 +1136,7 @@
                             let [a, u, k] = b.shift().split(",").map(b => b.trim());
                             var n = "table" === k;
                             let x = "radio" === k,
-                                ha = Math.ceil((new Date(u.trim()) - Date.now()) / 36E5);
+                                ha = .ceil((new Date(u.trim()) - Date.now()) / 36E5);
                             y.appendChild(document.createElement("br"));
                             c = document.createElement("small");
                             c.appendChild(document.createTextNode(0 < ha ? "closing in " + ha + " hour" + (1 === ha ? "" : "s") : "closed"));
@@ -1180,7 +1180,7 @@
                                         var f = parseInt(h.title, 10);
                                         h.className = "count";
                                         h.innerHTML = 1E3 <= f ? (f / 1E3).toFixed(1) + "<span>k</span>" : 0 <= f ? f : "?";
-                                        f = Math.floor((a.indexOf(f) + .5) / a.length * c.length);
+                                        f = .floor((a.indexOf(f) + .5) / a.length * c.length);
                                         h.style.color = c[f]
                                     }
                                 };
@@ -1253,7 +1253,7 @@
                             for (b = 0; b < l.length; b++) {
                                 n = l[b];
                                 if (!n.href) continue;
-                                let a = n.href.lastIndexOf("#"); - 1 !== a && (a = n.href.slice(a + 1), "options-menu" === a ? l[b].onclick = function(b) {
+                                let a = n.href.lastIndexOf("#"); - 1 !== a && (a = n.href.slice(a + 1), "options-" === a ? l[b].onclick = function(b) {
                                         b.preventDefault();
                                         bb()
                                     } : Ja[a] &&
@@ -1306,20 +1306,20 @@
             H.retrieveFromLocalStorage("optColors");
             H.retrieveFromLocalStorage("optNoPointy");
             H.retrieveFromLocalStorage("optBorders");
-            H.retrieveFromLocalStorage("optAutoLevel", b.mobile);
+            H.retrieveFromLocalStorage("optAutoLevel", b.);
             H.retrieveFromLocalStorage("optPrediction");
             H.retrieveFromLocalStorage("optPointy");
-            b.mobile && H.retrieveFromLocalStorage("optMobile");
+            b. && H.retrieveFromLocalStorage("optMobile");
             H.retrieveFromLocalStorage("optCustom");
             "" === document.getElementById("optColors").value && (document.getElementById("optColors").value = "normal");
-            b.mobile && "" === document.getElementById("optMobile").value && (document.getElementById("optMobile").value = "joysticks");
+            b. && "" === document.getElementById("optMobile").value && (document.getElementById("optMobile").value = "joysticks");
             "" === document.getElementById("optBorders").value &&
                 (document.getElementById("optBorders").value = "normal");
             let fa = document.getElementById("optCustom");
             fa.oninput = () => {
                 (fa.value ? C(fa.value) : 1) ? fa.classList.remove("error"): fa.classList.add("error")
             };
-            if (!b.mobile) {
+            if (!b.) {
                 let a = {};
                 try {
                     "#vi" === location.hash || "#vim" === location.hash ? a = {
@@ -1473,7 +1473,7 @@
                 z.screenHeight = U.cv.height = b.screenHeight = window.innerHeight
             });
             var U = new(w(5));
-            b.mobile && document.body.classList.add("mobile");
+            b. && document.body.classList.add("");
             var g = U.cv.getContext("2d"),
                 Ma = document.createElement("canvas").getContext("2d"),
                 S = [],
@@ -1527,10 +1527,10 @@
                     iterate: d => {
                         if (b.died || b.gameStart) return 0;
                         var y = A.accel / A.topSpeed;
-                        let f = Math.sqrt(d.x * d.x + d.y * d.y);
+                        let f = .sqrt(d.x * d.x + d.y * d.y);
                         c += A.accel * d.x / f;
                         h += A.accel * d.y / f;
-                        d = Math.sqrt(c * c + h * h);
+                        d = .sqrt(c * c + h * h);
                         0 < d && y && (y = d / (y / 0 + 1), c = y * c / d, h = y * h / d);
                         a += c;
                         e += h
@@ -1573,10 +1573,10 @@
                                                 if (c !== b || "injured" === b) "dying" !== b && (a = Date.now()),
                                                     b = c
                                             },
-                                            getFade: () => "dying" === b || "killed" === b ? 1 - Math.min(1, (Date.now() - a) / 300) : 1,
+                                            getFade: () => "dying" === b || "killed" === b ? 1 - .min(1, (Date.now() - a) / 300) : 1,
                                             getColor: () => "#FFFFFF",
                                             getBlend: () => {
-                                                let c = "normal" === b || "dying" === b ? 0 : 1 - Math.min(1, (Date.now() - a) / 80);
+                                                let c = "normal" === b || "dying" === b ? 0 : 1 - .min(1, (Date.now() - a) / 80);
                                                 500 < Date.now() - a && "injured" === b && (b = "normal");
                                                 return c
                                             }
@@ -1598,7 +1598,7 @@
                                                 getPositions: () => c.map(b => b.position),
                                                 update: () => c.forEach(b),
                                                 fire: (b, a) => {
-                                                    c[b].isUpdated && (c[b].motion += Math.sqrt(a) / 20);
+                                                    c[b].isUpdated && (c[b].motion += .sqrt(a) / 20);
                                                     c[b].isUpdated = !1
                                                 },
                                                 length: c.length
@@ -1628,16 +1628,16 @@
                                             f.layer = a.next();
                                             f.color = a.next();
                                             if (d) {
-                                                f.health = a.next() / 255;
+                                                f. = a.next() / 255;
                                                 var y = a.next();
                                                 f.shield = 0 > y ? NaN : y / 255
                                             } else {
-                                                y = f.health;
+                                                y = f.;
                                                 var g = f.shield;
-                                                f.health = a.next() / 255;
+                                                f. = a.next() / 255;
                                                 var u = a.next();
                                                 f.shield = 0 > u ? NaN : u / 255;
-                                                f.health < y || f.shield < g ? f.render.status.set("injured") : 1 !== f.render.status.getFade() && f.render.status.set("normal")
+                                                f. < y || f.shield < g ? f.render.status.set("injured") : 1 !== f.render.status.getFade() && f.render.status.set("normal")
                                             }
                                             f.alpha = a.next() / 255;
                                             f.drawsHealth = e & 2;
@@ -1657,15 +1657,15 @@
                                                 lastvy: f.vy,
                                                 lastf: f.facing,
                                                 f: f.facing,
-                                                h: f.health,
+                                                h: f.,
                                                 s: f.shield,
                                                 interval: J.rendergap,
                                                 slip: 0,
                                                 status: c(),
-                                                health: q(f.health, .5, 5),
+                                                : q(f., .5, 5),
                                                 shield: q(f.shield, .5, 5)
                                             });
-                                            f.render.health.set(f.health);
+                                            f.render..set(f.);
                                             f.render.shield.set(f.shield);
                                             d || f.oldIndex === f.index ||
                                                 (d = !0);
@@ -1689,7 +1689,7 @@
                                     let c = [];
                                     for (let d = 0, f = a.next(); d < f; d++) c.push(b());
                                     da.forEach(b => {
-                                        b.render.status.set(1 === b.health ? "dying" : "killed");
+                                        b.render.status.set(1 === b. ? "dying" : "killed");
                                         0 !== b.render.status.getFade() && R(b.render.x - z.renderx, b.render.y - z.rendery, b.size, !0) && c.push(b)
                                     });
                                     da = c;
@@ -1716,7 +1716,7 @@
                                 }
                                 if (l)
                                     for (c =
-                                        9; 0 <= c; c--) A.skills[c].name = a.next(), A.skills[c].cap = a.next(), A.skills[c].softcap = a.next();
+                                        9; 0 <= c; c--) A.skills[c].name = a.next(), A.skills[c]. = a.next(), A.skills[c].softcap = a.next();
                                 n && (n = parseInt(a.next(), 36), A.skills[0].amount = n / 68719476736 & 15, A.skills[1].amount = n / 4294967296 & 15, A.skills[2].amount = n / 268435456 & 15, A.skills[3].amount = n / 16777216 & 15, A.skills[4].amount = n / 1048576 & 15, A.skills[5].amount = n / 65536 & 15, A.skills[6].amount = n / 4096 & 15, A.skills[7].amount = n / 256 & 15, A.skills[8].amount = n / 16 & 15, A.skills[9].amount = n / 1 & 15);
                                 k && (A.accel = a.next());
                                 x && (A.party = a.next(), "z" !== b.server.id && (location.hash =
@@ -1794,8 +1794,8 @@
                             },
                             talk() {
                                 var f = ma();
-                                let y = Math.round(a / f);
-                                f = Math.round(c / f);
+                                let y = .round(a / f);
+                                f = .round(c / f);
                                 if (d !== b || e !== y || h !== f) g.talk("C", y, f, b), d = b, e = y, h = f
                             },
                             getMotion() {
@@ -1882,14 +1882,14 @@
                                 if (10 > S.length) setTimeout(() => g.talk("S", Date.now() - P - Q), 75), b.message = `Loading... ${10*S.length}%`;
                                 else {
                                     S.sort((b, a) => b.latency - a.latency);
-                                    let a = S[Math.floor(S.length / 2)].latency,
-                                        d = Math.sqrt(S.map(b => b.latency -
+                                    let a = S[.floor(S.length / 2)].latency,
+                                        d = .sqrt(S.map(b => b.latency -
                                             a).map(b => b * b).reduce((b, a) => b + a, 0) / S.length);
-                                    c = S.filter(b => Math.abs(b.latency - a) < d).map(b => b.delta);
-                                    P = Math.round(c.reduce((b, a) => b + a, 0) / c.length);
+                                    c = S.filter(b => .abs(b.latency - a) < d).map(b => b.delta);
+                                    P = .round(c.reduce((b, a) => b + a, 0) / c.length);
                                     b.gameStart = !0;
                                     b.message = "";
-                                    ia && !b.mobile && aiptag.cmd.display.push(function() {
+                                    ia && !b. && aiptag.cmd.display.push(function() {
                                         aipDisplayTag.clear("arras-io_336x280")
                                     })
                                 }
@@ -1912,7 +1912,7 @@
                                 c = c.slice(6);
                                 d > z.lastUpdate ? (Na.add(Date.now() - P - Q - d), z.time =
                                     d + Na.get(), J.rendergap = d - z.lastUpdate, z.lastUpdate = d, e.begin(c), e.gui(), e.data(), z.lastx = z.cx, z.lasty = z.cy, z.lastvx = z.vx, z.lastvy = z.vy, z.cx = a, z.cy = f, z.vx = b.died ? 0 : n, z.vy = b.died ? 0 : l, isNaN(z.renderx) && (z.renderx = z.cx), isNaN(z.rendery) && (z.rendery = z.cy), ya.reset(), z.view = h, z.renderv || (z.renderv = 2E3), J.lastlag = J.lag, J.lastuplink = Date.now()) : console.warn(`Old data! Last given time: ${z.time}; offered packet timestamp: ${d}.`);
-                                g.talk("d", Math.max(z.lastUpdate, d));
+                                g.talk("d", .max(z.lastUpdate, d));
                                 pa++
                             }
                             break;
@@ -1940,7 +1940,7 @@
                             for (d = 0; d < c[5]; d++) b.finalKillers.push(c[6 + d]);
                             b.died = !0;
                             b.respawnOn = Date.now() + (ia ? 5E3 : 3E3);
-                            ia ? clearInterval(qa) : !b.mobile && (aiptag.cmd.display.push(function() {
+                            ia ? clearInterval(qa) : !b. && (aiptag.cmd.display.push(function() {
                                 aipDisplayTag.display("arras-io_728x90")
                             }), d = document.getElementById("respawn-banner")) && (d.style.display = "block");
                         case "K":
@@ -2062,7 +2062,7 @@
                                 d && (a = !0, b = c)
                             },
                             publish: () => b,
-                            check: () => a ? (a = !1, !0) : !1
+                            : () => a ? (a = !1, !0) : !1
                         }
                     };
                     return () => {
@@ -2081,8 +2081,8 @@
                                 c[3].update(k);
                                 c[4].update(n);
                                 c[5].update(u);
-                                if (c.some(b => b.check())) {
-                                    let c = Math.max(3, k / 5),
+                                if (c.some(b => b.())) {
+                                    let c = .max(3, k / 5),
                                         f = ta(b, k - B.graphical.fontSizeBoost, !0);
                                     a.canvas.height = f.height + 2 * c;
                                     a.canvas.width = f.width + 2 * c;
@@ -2109,7 +2109,7 @@
                                     a.strokeText(b, d, e);
                                     a.fillText(b, d, e)
                                 }
-                                g.drawImage(a.canvas, Math.round(f - d), Math.round(h - e * (x ? 1.05 : 1.5)))
+                                g.drawImage(a.canvas, .round(f - d), .round(h - e * (x ? 1.05 : 1.5)))
                             }
                         }
                     }
@@ -2119,8 +2119,8 @@
                         b.beginPath();
                         if (g)
                             if (g instanceof Array) {
-                                var c = Math.cos(f);
-                                f = Math.sin(f);
+                                var c = .cos(f);
+                                f = .sin(f);
                                 for (let [h, l] of g) b.lineTo(a + e * (h * c - l * f), d + e * (l * c + h * f));
                                 b.closePath()
                             } else {
@@ -2136,15 +2136,15 @@
                                     return
                                 }
                                 if (0 > g) {
-                                    0 === g % 2 && (f += Math.PI / g);
+                                    0 === g % 2 && (f += .PI / g);
                                     g = -g;
                                     let l = 1 - 6 / (g * g);
                                     b.lineJoin = B.graphical.pointy ? 'miter' : 'round';
-                                    b.moveTo(a + e * Math.cos(f), d + e * Math.sin(f));
+                                    b.moveTo(a + e * .cos(f), d + e * .sin(f));
                                     for (let k = 0; k < g; k++) {
-                                        c = (k + 1) / g * 2 * Math.PI;
-                                        var h = (k + .5) / g * 2 * Math.PI;
-                                        b.quadraticCurveTo(a + e * l * Math.cos(h + f), d + e * l * Math.sin(h + f), a + e * Math.cos(c + f), d + e * Math.sin(c + f))
+                                        c = (k + 1) / g * 2 * .PI;
+                                        var h = (k + .5) / g * 2 * .PI;
+                                        b.quadraticCurveTo(a + e * l * .cos(h + f), d + e * l * .sin(h + f), a + e * .cos(c + f), d + e * .sin(c + f))
                                     }
                                     B.graphical.pointy && b.closePath();
                                     B.graphical.inversedRender ?
@@ -2153,12 +2153,12 @@
                                     return
                                 }
                                 if (0 < g) {
-                                    0 === g % 2 && (f += Math.PI / g);
-                                    for (c = 0; c < g; c++) h = c / g * 2 * Math.PI, b.lineTo(a + e * Math.cos(h + f), d + e * Math.sin(h + f));
+                                    0 === g % 2 && (f += .PI / g);
+                                    for (c = 0; c < g; c++) h = c / g * 2 * .PI, b.lineTo(a + e * .cos(h + f), d + e * .sin(h + f));
                                     b.closePath()
                                 }
                             }
-                        else b.arc(a, d, e, 0, 2 * Math.PI);
+                        else b.arc(a, d, e, 0, 2 * .PI);
                         B.graphical.inversedRender ? (b.stroke(), b.fill()) : (b.fill(), b.stroke())
                     }
                     return (a, c, d, x, t = 1, f = 1, m = 0, p = !1, z = !1, q = !1, F = d.render) => {
@@ -2173,7 +2173,7 @@
                             F.expandsWithDeath && (f *=
                                 1 + .5 * (1 - u));
                             if (z !== Ma && (1 !== u || 1 !== t))
-                                if (B.graphical.fancyAnimations) h = Ma, h.canvas.width = h.canvas.height = f * n.position.axis + 20 * x, y = h.canvas.width / 2 - f * n.position.axis * n.position.middle.x * Math.cos(m) / 4, R = h.canvas.height / 2 - f * n.position.axis * n.position.middle.x * Math.sin(m) / 4, z = !1;
+                                if (B.graphical.fancyAnimations) h = Ma, h.canvas.width = h.canvas.height = f * n.position.axis + 20 * x, y = h.canvas.width / 2 - f * n.position.axis * n.position.middle.x * .cos(m) / 4, R = h.canvas.height / 2 - f * n.position.axis * n.position.middle.x * .sin(m) / 4, z = !1;
                                 else if (.5 > u * t) return;
                             "object" !== typeof h && (h = g);
                             h.lineCap = "round";
@@ -2185,11 +2185,11 @@
                                         var w = v.direction + v.angle + m,
                                             A =
                                             v.offset * f;
-                                        ba(y + A * Math.cos(w), R + A * Math.sin(w), v, x, t, f / x / v.size * v.sizeFactor, q.turrets[E].facing + p * m, p, h, q.turrets[E], F)
+                                        ba(y + A * .cos(w), R + A * .sin(w), v, x, t, f / x / v.size * v.sizeFactor, q.turrets[E].facing + p * m, p, h, q.turrets[E], F)
                                     }
                                 } else throw Error("Mismatch turret number with mockup.");
                             q.guns.update();
-                            h.lineWidth = Math.max(B.graphical.mininumBorderChunk, x * B.graphical.borderChunk);
+                            h.lineWidth = .max(B.graphical.mininumBorderChunk, x * B.graphical.borderChunk);
                             E = F.status.getColor();
                             w = F.status.getBlend();
                             E = T(e(d.color), E, w);
@@ -2200,26 +2200,26 @@
                                     var D = n.guns[A],
                                         r = 1 === D.aspect ? w[A] / 2 : w[A]; {
                                         d = h;
-                                        v = y + f * (D.offset * Math.cos(D.direction + D.angle + m) + (D.length / 2 - r) * Math.cos(D.angle + m));
-                                        r = R + f * (D.offset * Math.sin(D.direction + D.angle + m) + (D.length / 2 - r) * Math.sin(D.angle + m));
+                                        v = y + f * (D.offset * .cos(D.direction + D.angle + m) + (D.length / 2 - r) * .cos(D.angle + m));
+                                        r = R + f * (D.offset * .sin(D.direction + D.angle + m) + (D.length / 2 - r) * .sin(D.angle + m));
                                         var C = f * (D.length / 2 - (1 === D.aspect ? w[A] : 0)),
                                             L = f * D.width / 2,
                                             G = D.aspect;
                                         D = D.angle + m;
                                         var X = L;
                                         0 < G ? X *= G : 0 > G && (L *= -G);
-                                        G = Math.atan2(X, C);
-                                        let b = Math.atan2(L, C);
-                                        X = Math.sqrt(C * C + X * X);
-                                        C = Math.sqrt(C * C + L * L);
+                                        G = .atan2(X, C);
+                                        let b = .atan2(L, C);
+                                        X = .sqrt(C * C + X * X);
+                                        C = .sqrt(C * C + L * L);
                                         var lol = (D.color != null) ? T(e(D.color), F.status.getColor(), F.status.getBlend()) : T(l.grey, F.status.getColor(), F.status.getBlend());
                                         k(h, lol);
                                         d.beginPath();
-                                        d.moveTo(v + X * Math.cos(D + G), r + X * Math.sin(D + G));
+                                        d.moveTo(v + X * .cos(D + G), r + X * .sin(D + G));
                                         d.lineTo(v +
-                                            C * Math.cos(D + Math.PI - b), r + C * Math.sin(D + Math.PI - b));
-                                        d.lineTo(v + C * Math.cos(D + Math.PI + b), r + C * Math.sin(D + Math.PI + b));
-                                        d.lineTo(v + X * Math.cos(D - G), r + X * Math.sin(D - G));
+                                            C * .cos(D + .PI - b), r + C * .sin(D + .PI - b));
+                                        d.lineTo(v + C * .cos(D + .PI + b), r + C * .sin(D + .PI + b));
+                                        d.lineTo(v + X * .cos(D - G), r + X * .sin(D - G));
                                         d.closePath();
                                         B.graphical.inversedRender ? (d.stroke(), d.fill()) : (d.fill(), d.stroke())
                                     }
@@ -2229,7 +2229,7 @@
                             b(h, y, R, f / n.size * n.realSize, n.shape, m);
                             if (q.turrets.length === n.turrets.length)
                                 for (E = 0; E < n.turrets.length; E++) d = n.turrets[E], 1 === d.layer && (v = d.direction + d.angle + m, w = d.offset * f, ba(y +
-                                    w * Math.cos(v), R + w * Math.sin(v), d, x, t, f / x / d.size * d.sizeFactor, q.turrets[E].facing + p * m, p, h, q.turrets[E], F));
+                                    w * .cos(v), R + w * .sin(v), d, x, t, f / x / d.size * d.sizeFactor, q.turrets[E].facing + p * m, p, h, q.turrets[E], F));
                             else throw Error("Mismatch turret number with mockup.");
                             z || h === g || (g.save(), g.globalAlpha = t * u, g.drawImage(h.canvas, a - y, c - R), g.restore())
                         }
@@ -2253,8 +2253,8 @@
                             }
                             draw(b, a, c, d) {
                                 for (; this.data.length > c;) this.data.shift();
-                                let e = this.zeroMin ? 0 : Math.min(...this.data),
-                                    f = Math.max(...this.data),
+                                let e = this.zeroMin ? 0 : .min(...this.data),
+                                    f = .max(...this.data),
                                     h = f - e;
                                 if (0 !== h) {
                                     0 < f && 0 > e && K(b, b + c, a + d * f / h, 2, l.guiwhite);
@@ -2267,8 +2267,8 @@
                                 }
                             }
                             getPeriodicAverage() {
-                                var b = this.zeroMin ? 0 : Math.min(...this.data),
-                                    a = Math.max(...this.data);
+                                var b = this.zeroMin ? 0 : .min(...this.data),
+                                    a = .max(...this.data);
                                 a = .1 * b + .9 * a;
                                 var c = !1;
                                 b = [];
@@ -2294,18 +2294,18 @@
                         },
                         h = (() => {
                             function a(b, a, c, d, f, e) {
-                                f = Math.cos((1 + e) * Math.PI);
+                                f = .cos((1 + e) * .PI);
                                 return .5 * (((1 + e) * c + b) * (f + 1) + (-e * d + a) * (1 - f))
                             }
 
                             function c(b, a) {
-                                var c = 2 * Math.PI;
-                                return ((b - a + Math.PI) % c + c) % c - Math.PI
+                                var c = 2 * .PI;
+                                return ((b - a + .PI) % c + c) % c - .PI
                             }
                             let d = (a = !1, d = J.rendergap) => {
                                     a = !1 === a ?
                                         Date.now() - J.lastuplink : Date.now() - P - Q - a;
-                                    d = Math.max(d, 1E3 / B.roomSpeed / 30);
+                                    d = .max(d, 1E3 / B.roomSpeed / 30);
                                     let f = b.noPredict ? 1 : a / d;
                                     return {
                                         predict: (b, a) => 1 <= f ? a : b + (a - b) * f,
@@ -2319,7 +2319,7 @@
                                     let f = 0,
                                         e = 0,
                                         g = 0;
-                                    f = Math.max(Date.now() - P - Q - b - 80, -d);
+                                    f = .max(Date.now() - P - Q - b - 80, -d);
                                     150 < f && (f = 150);
                                     e = f / d;
                                     g = 30 * B.roomSpeed * f / 1E3;
@@ -2339,7 +2339,7 @@
                         E = new c(l.teal),
                         v = (() => {
                             let b = [];
-                            for (let a = 0; a < 2 * B.gui.expectedMaxSkillLevel; a++) b.push(Math.log(4 * a / B.gui.expectedMaxSkillLevel + 1) / Math.log(5));
+                            for (let a = 0; a < 2 * B.gui.expectedMaxSkillLevel; a++) b.push(.log(4 * a / B.gui.expectedMaxSkillLevel + 1) / .log(5));
                             return a => b[a]
                         })();
                     var p = [m(), m(), m(), m(), m(), m(), m(), m(), m(), m()],
@@ -2361,7 +2361,7 @@
                         Date.now();
                         let d = 0;
                         oa++;
-                        let n = Math.max(b.screenWidth, 16 * b.screenHeight / 9) / (1280 >= b.screenWidth ? 1280 : 1920 <= b.screenWidth ? 1920 : b.screenWidth),
+                        let n = .max(b.screenWidth, 16 * b.screenHeight / 9) / (1280 >= b.screenWidth ? 1280 : 1920 <= b.screenWidth ? 1920 : b.screenWidth),
                             q, y; {
                             let b = h();
                             d = b.getPrediction();
@@ -2375,7 +2375,7 @@
                         } {
                             F(l.white, 1);
                             F(l.guiblack, .1);
-                            if (b.radial) g.save(), g.translate(b.screenWidth / 2, b.screenHeight / 2), g.rotate(Math.atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy)), g.translate(b.screenWidth / -2, b.screenHeight / -2), g.globalAlpha = 1, g.fillStyle = l.white, g.beginPath(), g.arc(-q + b.screenWidth / 2 + c * b.gameWidth / 2, -y + b.screenHeight / 2 + c * b.gameHeight / 2, c * b.gameWidth / 2, 0, 2 * Math.PI), g.fill();
+                            if (b.radial) g.save(), g.translate(b.screenWidth / 2, b.screenHeight / 2), g.rotate(.atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy)), g.translate(b.screenWidth / -2, b.screenHeight / -2), g.globalAlpha = 1, g.fillStyle = l.white, g.beginPath(), g.arc(-q + b.screenWidth / 2 + c * b.gameWidth / 2, -y + b.screenHeight / 2 + c * b.gameHeight / 2, c * b.gameWidth / 2, 0, 2 * .PI), g.fill();
                             else {
                                 g.globalAlpha = 1;
                                 g.fillStyle = l.white;
@@ -2403,7 +2403,7 @@
                             g.beginPath();
                             let a = 30 * c;
                             if (b.radial) {
-                                let d = 30 * Math.ceil(Math.sqrt(b.screenWidth * b.screenWidth + b.screenHeight * b.screenHeight) / c / c / 60) * c;
+                                let d = 30 * .ceil(.sqrt(b.screenWidth * b.screenWidth + b.screenHeight * b.screenHeight) / c / c / 60) * c;
                                 for (let c = (b.screenWidth / 2 - q) % a - d; c < b.screenWidth + d; c += a) g.moveTo(c, -d), g.lineTo(c, d + b.screenHeight);
                                 for (let c = (b.screenHeight / 2 - y) % a - d; c < b.screenHeight + d; c += a) g.moveTo(-d, c), g.lineTo(d + b.screenWidth, c)
                             } else {
@@ -2420,9 +2420,9 @@
                             if (b.radial) {
                                 g.save();
                                 g.translate(b.screenWidth / 2, b.screenHeight / 2);
-                                let c = Math.atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy);
-                                a = Math.cos(c);
-                                d = Math.sin(c);
+                                let c = .atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy);
+                                a = .cos(c);
+                                d = .sin(c);
                                 g.rotate(c)
                             }
                             da.forEach(function(a) {
@@ -2434,7 +2434,7 @@
                                         a.render.f = d.predictFacing(a.render.lastf,
                                             a.facing)
                                     } else d = h(a.render.lastRender, a.interval), a.render.x = d.predictExtrapolate(a.render.lastx, a.x, a.render.lastvx, a.vx), a.render.y = d.predictExtrapolate(a.render.lasty, a.y, a.render.lastvy, a.vy), a.render.f = d.predictFacingExtrapolate(a.render.lastf, a.facing);
-                                    a.id === A.playerid && 0 === (a.twiggle & 1) && (a.render.f = Math.atan2(U.target.y, U.target.x), b.radial && (a.render.f -= Math.atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy)), a.twiggle & 2 && (a.render.f += Math.PI));
+                                    a.id === A.playerid && 0 === (a.twiggle & 1) && (a.render.f = .atan2(U.target.y, U.target.x), b.radial && (a.render.f -= .atan2(b.gameWidth / 2 - z.cx, b.gameHeight / 2 - z.cy)), a.twiggle & 2 && (a.render.f += .PI));
                                     d = c * a.render.x - q;
                                     var f = c * a.render.y - y;
                                     b.radial ?
@@ -2527,7 +2527,7 @@
                                                 });
                                                 return {
                                                     width: e.map(b => b.width).reduce((b, a) => b + a, 0),
-                                                    height: 2 + Math.max(...e.map(b => b.height))
+                                                    height: 2 + .max(...e.map(b => b.height))
                                                 }
                                             }
                                         }
@@ -2535,7 +2535,7 @@
                                     h = f(0, 0, 0, {
                                         index: a.index
                                     }),
-                                    k = Math.min(.9 * b.screenWidth / h.width, .9 * b.screenHeight / h.height);
+                                    k = .min(.9 * b.screenWidth / h.width, .9 * b.screenHeight / h.height);
                                 g.globalAlpha = .5;
                                 g.fillStyle = l.guiwhite;
                                 G(0, 0, b.screenWidth, b.screenHeight);
@@ -2546,8 +2546,8 @@
                                 for (let [a, c] of d) {
                                     let d = b.screenWidth / 2 + (c.x - h.width / 2) * k + 1 + .5 * n,
                                         f = b.screenHeight / 2 + (c.y - h.height / 2) * k + 1 + .5 * n;
-                                    g.moveTo(Math.round(b.screenWidth / 2 + (a.x - h.width / 2) * k + 1 + .5 * n) + .5, Math.round(b.screenHeight / 2 + (a.y - h.height / 2) * k + 1 + .5 * n) + .5);
-                                    g.lineTo(Math.round(d) + .5, Math.round(f) + .5)
+                                    g.moveTo(.round(b.screenWidth / 2 + (a.x - h.width / 2) * k + 1 + .5 * n) + .5, .round(b.screenHeight / 2 + (a.y - h.height / 2) * k + 1 + .5 * n) + .5);
+                                    g.lineTo(.round(d) + .5, .round(f) + .5)
                                 }
                                 g.stroke();
                                 for (let {
@@ -2568,29 +2568,29 @@
                                     g.fillStyle = l.black;
                                     G(c, u + .6 * n, n, .4 * n);
                                     g.globalAlpha = 1;
-                                    let t = -Math.PI / 4,
+                                    let t = -.PI / 4,
                                         q = D(x, A.color),
                                         v = M[x].position,
                                         m = .8 * n / v.axis;
-                                    ba(c + .5 * n - m * v.middle.x * Math.cos(t), u + .5 * n - m * v.middle.x * Math.sin(t), q, .5, 1, m / q.size * 2, t, !0);
+                                    ba(c + .5 * n - m * v.middle.x * .cos(t), u + .5 * n - m * v.middle.x * .sin(t), q, .5, 1, m / q.size * 2, t, !0);
                                     g.strokeStyle = l.black;
                                     g.lineWidth = 2;
                                     G(c, u, n, n, !0)
                                 }
                             } while (0);
-                            if (b.mobile && "joysticks" === U.control) {
-                                let a = Math.min(.6 * b.screenWidth, .12 * b.screenHeight);
+                            if (b. && "joysticks" === U.control) {
+                                let a = .min(.6 * b.screenWidth, .12 * b.screenHeight);
                                 g.globalAlpha = .3;
                                 g.fillStyle = "#ffffff";
                                 g.beginPath();
-                                g.arc(1 * b.screenWidth / 6, 2 * b.screenHeight / 3, a, 0, 2 * Math.PI);
-                                g.arc(5 * b.screenWidth / 6, 2 * b.screenHeight / 3, a, 0, 2 * Math.PI);
+                                g.arc(1 * b.screenWidth / 6, 2 * b.screenHeight / 3, a, 0, 2 * .PI);
+                                g.arc(5 * b.screenWidth / 6, 2 * b.screenHeight / 3, a, 0, 2 * .PI);
                                 g.fill()
                             }
-                            b.mobile && L(1.4); {
+                            b. && L(1.4); {
                                 let c = b.screenWidth / 2,
                                     d = 20;
-                                b.mobile && (d += (b.canSkill ? (200 / 3 + 20) / 1.4 * a.get() : 0) + (b.canUpgrade ? 120 / 1.4 * k.get() : 0));
+                                b. && (d += (b.canSkill ? (200 / 3 + 20) / 1.4 * a.get() : 0) + (b.canUpgrade ? 120 / 1.4 * k.get() : 0));
                                 for (let b = Y.length - 1; 0 <= b; b--) {
                                     let a = Y[b],
                                         f = a.text;
@@ -2598,17 +2598,17 @@
                                     null == a.len && (a.len = ta(f, 14));
                                     g.globalAlpha = .5 * a.alpha;
                                     K(c - a.len / 2, c + a.len / 2, d + 9, 18, l.black);
-                                    g.globalAlpha = Math.min(1, a.alpha);
+                                    g.globalAlpha = .min(1, a.alpha);
                                     a.textobj.draw(f, c, d + 9, 14, l.guiwhite, "center", !0);
                                     d += 22;
-                                    1 < a.status && (d -= 22 * (1 - Math.sqrt(a.alpha)));
+                                    1 < a.status && (d -= 22 * (1 - .sqrt(a.alpha)));
                                     1 < a.status ? (a.status -= .05, a.alpha += .05) : 0 === b && (5 < Y.length || 1E4 < Date.now() - a.time) && (a.status -= .05, a.alpha -= .05, 0 >= a.alpha && Y.shift())
                                 }
                                 g.globalAlpha = 1
                             }
-                            b.mobile && L(1 / 1.4);
-                            if (!b.mobile) {
-                                b.canSkill = 0 < A.points && A.skills.some(b => b.amount < b.cap);
+                            b. && L(1 / 1.4);
+                            if (!b.) {
+                                b.canSkill = 0 < A.points && A.skills.some(b => b.amount < b.);
                                 a.set(0 + (b.canSkill || b.died || b.statHover));
                                 b.clickables.stat.hide();
                                 let c = 200,
@@ -2623,7 +2623,7 @@
                                         u = a.amount,
                                         t = l[a.color];
                                     var q = a.softcap;
-                                    a = a.cap;
+                                    a = a.;
                                     if (q) {
                                         c = d;
                                         let k = B.gui.expectedMaxSkillLevel;
@@ -2639,21 +2639,21 @@
                                         for (m = 1; m < u + 1; m++) ka(f + (c - 35) * v(m), e + 1.5, f + (c - 35) * v(m), e - 3 + 15);
                                         c = d * v(k);
                                         q = u === a ? t : !A.points || q !== a && u === q ? l.grey : l.guiwhite;
-                                        p[h - 1].draw(x, Math.round(f +
+                                        p[h - 1].draw(x, .round(f +
                                             c / 2) + .5, e + 7.5, 10, q, "center", !0);
-                                        w[h - 1].draw("[" + h % 10 + "]", Math.round(f + c - 3.75) - 1.5, e + 7.5, 10, q, "right", !0);
+                                        w[h - 1].draw("[" + h % 10 + "]", .round(f + c - 3.75) - 1.5, e + 7.5, 10, q, "right", !0);
                                         q === l.guiwhite && b.clickables.stat.place(h - 1, f * n, e * n, c * n, 15 * n);
-                                        u && R[h - 1].draw(q === t ? "MAX" : "+" + u, Math.round(f + c + 4) + .5, e + 7.5, 10, t, "left", !0);
+                                        u && R[h - 1].draw(q === t ? "MAX" : "+" + u, .round(f + c + 4) + .5, e + 7.5, 10, t, "left", !0);
                                         e -= 19
                                     }
                                 });
                                 b.clickables.hover.place(0, 0, e * n, .8 * c * n, .8 * (b.screenHeight - e) * n);
-                                1 < A.points && r.draw("x" + A.points, Math.round(f + c - 2) + .5, Math.round(e + 15 - 4) + .5, 20, l.guiwhite, "right")
+                                1 < A.points && r.draw("x" + A.points, .round(f + c - 2) + .5, .round(e + 15 - 4) + .5, 20, l.guiwhite, "right")
                             } {
                                 let a = 25,
                                     c = (b.screenWidth - 330) / 2,
                                     d = b.screenHeight - 20 - a;
-                                ia || b.mobile || !b.died || (d -= 110);
+                                ia || b. || !b.died || (d -= 110);
                                 g.lineWidth = 1;
                                 K(c, c + 330, d + a / 2, a - 3 + B.graphical.barChunk, l.black);
                                 K(c, c + 330, d + a / 2, a - 3, l.grey);
@@ -2663,17 +2663,17 @@
                                 d -= a + 4;
                                 K(c + 33, c + 297, d + a / 2, a - 3 + B.graphical.barChunk, l.black);
                                 K(c + 33, c + 297, d + a / 2, a - 3, l.grey);
-                                K(c + 33, c + 330 * (.1 + .8 * (na ? Math.min(1, A.__s.getScore() / na) : 1)), d + a / 2, a - 3.5, l.green);
+                                K(c + 33, c + 330 * (.1 + .8 * (na ? .min(1, A.__s.getScore() / na) : 1)), d + a / 2, a - 3.5, l.green);
                                 C.draw("Score: " + H.formatLargeNumber(A.__s.getScore()), c + 165, d + a / 2, a - 2, l.guiwhite, "center",
                                     !0);
                                 g.lineWidth = 4;/*
                                 if (//name color) {
-                                N.draw(z.name, Math.round(c + 165) + .5, Math.round(d - 10 - 4) + .5, 32, l.yellow, "center")
+                                N.draw(z.name, .round(c + 165) + .5, .round(d - 10 - 4) + .5, 32, l.yellow, "center")
                                 } else {*/
-                                N.draw(z.name, Math.round(c + 165) + .5, Math.round(d - 10 - 4) + .5, 32, l.guiwhite, "center")
+                                N.draw(z.name, .round(c + 165) + .5, .round(d - 10 - 4) + .5, 32, l.guiwhite, "center")
                                 //};// name color
                             }
-                            b.mobile && L(.8); {
+                            b. && L(.8); {
                                 let c = 200 / b.gameWidth * b.gameHeight,
                                     h = b.screenWidth - 20,
                                     n = b.screenHeight - 20,
@@ -2700,7 +2700,7 @@
                                         g.lineWidth = 3;
                                         b.radial ? ja(a + d / 2, c + f / 2, d / 2, !0) : G(a, c, d, f, !0)
                                     };
-                                if (b.mobile) {
+                                if (b.) {
                                     h -= 200;
                                     let d = (b.canSkill ?
                                         (200 / 3 + 40) * a.get() : 0) + (b.canUpgrade ? 140 * k.get() : 0);
@@ -2708,7 +2708,7 @@
                                 } else h -= 200, n -= c, q(h, n, 200, c, 2);
                                 let m = n - 10,
                                     v = J.latency.reduce((b, a) => b + a, 0) / J.latency.length,
-                                    y = Math.sqrt(z.vx * z.vx + z.vy * z.vy);
+                                    y = .sqrt(z.vx * z.vx + z.vy * z.vy);
                                 b.showDebug && (G(h, n - 40, 200, 30), u.addValue(d), u.draw(h, n - 40, 200, 30), t.addValue(y), t.draw(h, n - 40, 200, 30), E.addValue(J.rendergap), E.draw(h, n - 40, 200, 30), f.addValue(v), f.draw(h, n - 40, 200, 30), m -= 40);
                                 if (B.graphical.screenshotMode) W[6].draw("Arras.io", h + 200, m - 2, 15, l.guiwhite, "right");
                                 else {
@@ -2716,7 +2716,7 @@
                                         W[6].draw("Arras Template",
                                             h + 200, m - 84 - 2, 15, l.guiwhite, "right");
                                         let b = t.getPeriodicAverage();
-                                        W[5].draw("Tank Speed: " + y.toFixed(2) + " gu/s" + (b && .005 <= b ? ` (${b.toFixed(2)} gu/s)` : ""), h + 200, m - 70, 10, l.guiwhite, "right");
+                                        W[5].draw(" Speed: " + y.toFixed(2) + " gu/s" + (b && .005 <= b ? ` (${b.toFixed(2)} gu/s)` : ""), h + 200, m - 70, 10, l.guiwhite, "right");
                                         W[4].draw("Prediction: " + d.toFixed(3), h + 200, m - 56, 10, l.guiwhite, "right");
                                         W[3].draw("Update Rate: " + J.updatetime + "Hz", h + 200, m - 42, 10, l.guiwhite, "right")
                                     } else W[6].draw("Arras Template", h + 200, m - 42 - 2, 15, l.guiwhite, "right");
@@ -2725,28 +2725,28 @@
                                     W[0].draw(v.toFixed(1) + " ms  " + b.server.code + " :" + b.server.type + ":", h + 200, m, 10, l.guiwhite, "right")
                                 }
                             }
-                            b.mobile && L(1.25);
-                            b.mobile && L(1.4);
+                            b. && L(1.25);
+                            b. && L(1.4);
                             if (!B.graphical.screenshotMode) {
                                 let c = b.screenWidth - 200 - 20,
                                     d = 48;
-                                b.mobile && (d += (b.canSkill ? 200 / 3 / 1.4 * a.get() : 0) + (b.canUpgrade && 40 + 114 * A.upgrades.length > 1.4 * c ? 100 / 1.4 * k.get() : 0));
-                                0 < O.data.length && V.draw("Leaderboard", Math.round(c + 100) + .5, Math.round(d - 10) + .5, 18,
+                                b. && (d += (b.canSkill ? 200 / 3 / 1.4 * a.get() : 0) + (b.canUpgrade && 40 + 114 * A.upgrades.length > 1.4 * c ? 100 / 1.4 * k.get() : 0));
+                                0 < O.data.length && V.draw("Leaderboard", .round(c + 100) + .5, .round(d - 10) + .5, 18,
                                     l.guiwhite, "center");
-                                for (let a = 0; a < O.data.length && (!b.mobile || 6 > a); a++) {
+                                for (let a = 0; a < O.data.length && (!b. || 6 > a); a++) {
                                     let b = O.data[a];
                                     K(c, c + 200, d + 7, 11 + B.graphical.barChunk, l.black);
                                     K(c, c + 200, d + 7, 11, l.grey);
-                                    K(c, c + 200 * Math.min(1, b.score / na), d + 7, 10.5, b.barColor);
-                                    ca[a].draw(b.label + ": " + H.handleLargeNumber(Math.round(b.score)), c + 100, d + 7, 9, l.guiwhite, "center", !0);
+                                    K(c, c + 200 * .min(1, b.score / na), d + 7, 10.5, b.barColor);
+                                    ca[a].draw(b.label + ": " + H.handleLargeNumber(.round(b.score)), c + 100, d + 7, 9, l.guiwhite, "center", !0);
                                     let f = 14 / b.position.axis;
-                                    ba(c - 21 - f * b.position.middle.x * .707, d + 7 + f * b.position.middle.x * .707, b.image, 1 / f, 1, f * f / b.image.size, -Math.PI / 4, !0);
+                                    ba(c - 21 - f * b.position.middle.x * .707, d + 7 + f * b.position.middle.x * .707, b.image, 1 / f, 1, f * f / b.image.size, -.PI / 4, !0);
                                     d += 18
                                 }
                             }
-                            b.mobile && L(1 / 1.4); {
+                            b. && L(1 / 1.4); {
                                 b.canUpgrade = 0 < A.upgrades.length &&
-                                    !(b.mobile && b.died);
+                                    !(b. && b.died);
                                 k.set(+b.canUpgrade);
                                 let a = k.get();
                                 b.clickables.upgrade.hide();
@@ -2777,15 +2777,15 @@
                                         let t = D(m, A.color);
                                         m = M[m].position;
                                         let v = 60 / m.axis;
-                                        ba(c + 50 - v * m.middle.x * Math.cos(la), d + 50 - v * m.middle.x *
-                                            Math.sin(la), t, 1, 1, v / t.size, la, !0);
+                                        ba(c + 50 - v * m.middle.x * .cos(la), d + 50 - v * m.middle.x *
+                                            .sin(la), t, 1, 1, v / t.size, la, !0);
                                         m = (b.help[`KEY_CHOOSE_${x+1}`] || "").toLowerCase().trim();
-                                        !b.mobile && m ? (aa[q - 1].draw(t.name, c + 45, d + 100 - 6, 9.5, l.guiwhite, "center"), ea[q - 1].draw("[" + m + "]", c + 100 - 4, d + 100 - 6, 9.5, l.guiwhite, "right")) : aa[q - 1].draw(t.name, c + 50, d + 100 - 6, 9.5, l.guiwhite, "center");
+                                        !b. && m ? (aa[q - 1].draw(t.name, c + 45, d + 100 - 6, 9.5, l.guiwhite, "center"), ea[q - 1].draw("[" + m + "]", c + 100 - 4, d + 100 - 6, 9.5, l.guiwhite, "right")) : aa[q - 1].draw(t.name, c + 50, d + 100 - 6, 9.5, l.guiwhite, "center");
                                         g.strokeStyle = l.black;
                                         g.globalAlpha = 1;
                                         g.lineWidth = 3;
                                         G(c, d, 100, 100, !0);
-                                        0 !== ++x % 7 || b.mobile ? c += 114 * a : (c = f, d += 114)
+                                        0 !== ++x % 7 || b. ? c += 114 * a : (c = f, d += 114)
                                     });
                                     let m = ta("Don't Upgrade", 11) + 10,
                                         t = (h + 100 + 14 + f - 15) / 2,
@@ -2797,8 +2797,8 @@
                                     b.clickables.skipUpgrades.place(0, (t - m / 2) * n, v * n, m * n, 14 * n)
                                 } else b.clickables.upgrade.hide(), b.clickables.skipUpgrades.hide()
                             }
-                            if (b.mobile) {
-                                b.canSkill = 0 < A.points && A.skills.some(b => b.amount < b.cap) && !b.canUpgrade;
+                            if (b.) {
+                                b.canSkill = 0 < A.points && A.skills.some(b => b.amount < b.) && !b.canUpgrade;
                                 a.set(0 + (b.canSkill || b.died));
                                 let c = a.get();
                                 b.clickables.stat.hide();
@@ -2812,9 +2812,9 @@
                                             x)) {
                                         var m = a.amount,
                                             u = l[a.color];
-                                        a = a.cap;
+                                        a = a.;
                                         var q = h[9 - k].split(/\s+/),
-                                            t = Math.floor(q.length / 2),
+                                            t = .floor(q.length / 2),
                                             [v, y] = 1 === q.length ? [q, null] : [q.slice(0, t), q.slice(t)];
                                         g.globalAlpha = .5;
                                         g.fillStyle = u;
@@ -2833,7 +2833,7 @@
                                         m === a || !A.points || x !== a && m === x || b.clickables.stat.place(9 -
                                             k, f * n, 20 * n, 100 * n, d * n);
                                         y ? (p[k].draw(y, f + 50, 20 + .55 * d, d / 6, l.guiwhite, "center"), p[k].draw(v, f + 50, 20 + .3 * d, d / 6, l.guiwhite, "center")) : p[k].draw(v, f + 50, 20 + .425 * d, d / 6, l.guiwhite, "center");
-                                        0 < m && R[k].draw(m >= x ? "MAX" : "+" + m, Math.round(f + 50) + .5, 20 + 1.3 * d, d / 4, u, "center");
+                                        0 < m && R[k].draw(m >= x ? "MAX" : "+" + m, .round(f + 50) + .5, 20 + 1.3 * d, d / 4, u, "center");
                                         g.strokeStyle = l.black;
                                         g.globalAlpha = 1;
                                         g.lineWidth = 3;
@@ -2842,7 +2842,7 @@
                                         f += 114 * c;
                                         e++
                                     }
-                                }), 1 < A.points && r.draw("x" + A.points, Math.round(f) + .5, 40.5, 20, l.guiwhite, "left"))
+                                }), 1 < A.points && r.draw("x" + A.points, .round(f) + .5, 40.5, 20, l.guiwhite, "left"))
                             }
                             L(1 / n, !0)
                         }
@@ -2857,7 +2857,7 @@
                         k = m(),
                         f = m();
                     let x = () => {
-                            let a = [Math.round(b.finalKills[0].get()), Math.round(b.finalKills[1].get()), Math.round(b.finalKills[2].get())];
+                            let a = [.round(b.finalKills[0].get()), .round(b.finalKills[1].get()), .round(b.finalKills[2].get())];
                             var c = a[0] + .5 * a[1] + 3 * a[2];
                             let d = (0 === c ? "\ud83c\udf3c" : 4 > c ? "\ud83c\udfaf" : 8 > c ? "\ud83d\udca5" : 15 > c ? "\ud83d\udca2" : 25 > c ? "\ud83d\udd25" : 50 > c ? "\ud83d\udca3" : 75 > c ? "\ud83d\udc7a" : 100 > c ? "\ud83c\udf36\ufe0f" : "\ud83d\udcaf") + " ";
                             if (0 === c) return d + "A true pacifist";
@@ -2876,15 +2876,15 @@
                         var m = D(A.type, A.color);
                         let u = M[A.type].position,
                             t = 140 / u.axis;
-                        ba(b.screenWidth / 2 - t * u.middle.x * .707 - 190 - 70, b.screenHeight / 2 - 35 + t * u.middle.x * .707 - 10, m, 1.5, 1, .5 * t / m.realSize, -Math.PI / 4, !0);
+                        ba(b.screenWidth / 2 - t * u.middle.x * .707 - 190 - 70, b.screenHeight / 2 - 35 + t * u.middle.x * .707 - 10, m, 1.5, 1, .5 * t / m.realSize, -.PI / 4, !0);
                         a.draw("lol you died", d, n - 80, 8, l.guiwhite, "center");
                         e.draw("Level " +
                             A.__s.getLevel() + " " + M[A.type].name, d - 170, n - 30, 24, l.guiwhite);
-                        c.draw("Final score: " + H.formatLargeNumber(Math.round(b.finalScore.get())), d - 170, n + 25, 50, l.guiwhite);
-                        h.draw("\u231a Survived for " + H.timeForHumans(Math.round(b.finalLifetime.get())), d - 170, n + 55, 16, l.guiwhite);
+                        c.draw("Final score: " + H.formatLargeNumber(.round(b.finalScore.get())), d - 170, n + 25, 50, l.guiwhite);
+                        h.draw("\u231a Survived for " + H.timeForHumans(.round(b.finalLifetime.get())), d - 170, n + 55, 16, l.guiwhite);
                         g.draw(x(), d - 170, n + 77, 16, l.guiwhite);
                         k.draw(q(), d - 170, n + 99, 16, l.guiwhite);
-                        m = Math.ceil((b.respawnOn - Date.now()) / 1E3);
+                        m = .ceil((b.respawnOn - Date.now()) / 1E3);
                         f.draw(0 < m ? `You may respawn in ${m} second${1===m?"":"s"}` : "joysticks" === U.control ? "Tap to respawn!" : "Press enter to respawn!",
                             d, n + 125, 16, l.guiwhite, "center")
                     }
@@ -2893,7 +2893,7 @@
             window.$createProfile = (() => {
                 var b = m();
                 m();
-                return (a, c = -1, d = 200, k = -Math.PI / 4) => {
+                return (a, c = -1, d = 200, k = -.PI / 4) => {
                     let h = g.canvas.width,
                         f = g.canvas.height,
                         n = g.canvas.width = d;
@@ -2901,7 +2901,7 @@
                     let x = D(a, A.color);
                     a = M[a].position;
                     let m = .6 * n / a.axis;
-                    ba(.5 * n - m * a.middle.x * Math.cos(k), .5 * d - m * a.middle.x * Math.sin(k), x, 1, 1, m / x.size, k, !0); - 1 !== c && (b.draw(x.name, .9 * n / 2, d - 6, d / 8 - 3, l.guiwhite, "center"), g.strokeStyle = l.black, g.globalAlpha = 1, g.lineWidth = 3, G(0, 0, n, d, !0));
+                    ba(.5 * n - m * a.middle.x * .cos(k), .5 * d - m * a.middle.x * .sin(k), x, 1, 1, m / x.size, k, !0); - 1 !== c && (b.draw(x.name, .9 * n / 2, d - 6, d / 8 - 3, l.guiwhite, "center"), g.strokeStyle = l.black, g.globalAlpha = 1, g.lineWidth = 3, G(0, 0, n, d, !0));
                     c = g.canvas.toDataURL();
                     g.canvas.width = h;
                     g.canvas.height = f;
@@ -2913,16 +2913,16 @@
                         e = m();
                     m();
                     var c = [
-                        ["Tip: You can view and edit your keybinds in the options menu.", "Tip: You can play on mobile by just going to arras.io on your phone!"],
-                        ["Tip: You can have the shield and health bar be separated by going to the options menu.",
-                            "Tip: If arras is having a low frame rate, you can try enabling low graphics in the options menu.", "Tip: You can make traps rounded with the classic trap setting in the options menu.", "Tip: You can create your own private server with the template in the link on the options menu.", "Tip: You can create your own theme with the custom theme makerin the link on the options menu."
+                        ["Tip: You can view and edit your keybinds in the options .", "Tip: You can play on  by just going to arras.io on your phone!"],
+                        ["Tip: You can have the shield and  bar be separated by going to the options .",
+                            "Tip: If arras is having a low frame rate, you can try enabling low graphics in the options .", "Tip: You can make traps rounded with the classic trap setting in the options .", "Tip: You can create your own private server with the template in the link on the options .", "Tip: You can create your own theme with the custom theme makerin the link on the options ."
                         ],
                         ["Teaming in FFA or FFA Maze is frowned upon, but when taken to the extremes, you can be punished.", "Witch hunting is when you continuously target someone and follow them. This is frowned upon, but when taken to the extremes, you can be punished.",
                             "Multiboxing is when you use a script to control multiple tanks at the same time. This is considered CHEATING and will result in a ban."
                         ]
                     ];
-                    c = c[Math.floor(Math.random() * c.length)];
-                    let g = c[Math.floor(Math.random() * c.length)];
+                    c = c[.floor(.random() * c.length)];
+                    let g = c[.floor(.random() * c.length)];
                     return () => {
                         F(l.white, .5);
                         a.draw("Connecting...", b.screenWidth / 2, b.screenHeight / 2, 30, l.guiwhite, "center");
@@ -2939,7 +2939,7 @@
                         e.draw(b.message, b.screenWidth / 2, b.screenHeight / 2 + 30, 15, l.orange, "center")
                     }
                 })();
-            let Oa = b.mobile ? 0 : Math.max(0, 1 - Math.abs(Date.now() - new Date(2019, 11, 25)) / 20736E5);
+            let Oa = b. ? 0 : .max(0, 1 - .abs(Date.now() - new Date(2019, 11, 25)) / 20736E5);
             if (Oa) {
                 let a = document.createElement("canvas");
                 a.style.position = "absolute";
@@ -2954,15 +2954,15 @@
                         e.clearRect(0, 0, a.width, a.height);
                         e.fillStyle = "#ffffff";
                         for (let b of c) {
-                            b.x += 5 / b.r + Math.random();
-                            b.y += 12.5 / b.r + Math.random();
-                            let c = 2 * Math.min(.4, .9 - b.y / a.height);
-                            0 < c ? (e.globalAlpha = c, e.beginPath(), e.arc(b.x, b.y, b.r, 0, 2 * Math.PI), e.fill()) : b.gone = !0
+                            b.x += 5 / b.r + .random();
+                            b.y += 12.5 / b.r + .random();
+                            let c = 2 * .min(.4, .9 - b.y / a.height);
+                            0 < c ? (e.globalAlpha = c, e.beginPath(), e.arc(b.x, b.y, b.r, 0, 2 * .PI), e.fill()) : b.gone = !0
                         }
-                        .001 * a.width * Oa > Math.random() && c.push({
-                            x: a.width * (1.5 * Math.random() - .5),
-                            y: -50 - 100 * Math.random(),
-                            r: 2 + Math.random() * Math.random() * 4
+                        .001 * a.width * Oa > .random() && c.push({
+                            x: a.width * (1.5 * .random() - .5),
+                            y: -50 - 100 * .random(),
+                            r: 2 + .random() * .random() * 4
                         });
                         b.gameStart ? a.remove() : requestAnimationFrame(g)
                     };
@@ -2975,7 +2975,7 @@
                 cb = "en-US" === navigator.language && -7 <= b.timezone && -4 >= b.timezone,
                 db = 6 === ca.getMonth() && 4 === ca.getDate(),
                 eb = 11 === ca.getMonth() && 31 === ca.getDate() || 0 === ca.getMonth() && 3 >= ca.getDate();
-            if (!b.mobile && (db && cb || eb)) {
+            if (!b. && (db && cb || eb)) {
                 let a = document.createElement("canvas");
                 a.style.position = "absolute";
                 a.style.top = "0";
@@ -3012,33 +3012,33 @@
                             if (0 < h) e.strokeStyle = `rgba(${b.color[0]}, ${b.color[1]}, ${b.color[2]}, ${h})`, e.beginPath(), e.moveTo(d, f), e.lineTo(b.x, b.y), e.stroke();
                             else {
                                 if (b.primary && !b.gone) {
-                                    d = Math.floor(5 * Math.random()) + 30;
-                                    f = .5 * Math.random() + 3;
-                                    h = 25 + 5 * Math.random();
-                                    for (let a of [c[Math.floor(Math.random() * c.length)], c[Math.floor(Math.random() * c.length)]])
+                                    d = .floor(5 * .random()) + 30;
+                                    f = .5 * .random() + 3;
+                                    h = 25 + 5 * .random();
+                                    for (let a of [c[.floor(.random() * c.length)], c[.floor(.random() * c.length)]])
                                         for (let c = 0; c < d; c++) {
-                                            let e = (c + Math.random()) / d * Math.PI * 2,
-                                                k = f + .5 * Math.random();
+                                            let e = (c + .random()) / d * .PI * 2,
+                                                k = f + .5 * .random();
                                             g.push({
                                                 color: a,
                                                 x: b.x,
                                                 y: b.y,
-                                                vx: Math.cos(e) * k,
-                                                vy: -.8 + Math.sin(e) * k,
-                                                time: h + 2 * Math.random()
+                                                vx: .cos(e) * k,
+                                                vy: -.8 + .sin(e) * k,
+                                                time: h + 2 * .random()
                                             })
                                         }
                                 }
                                 b.gone = !0
                             }
                         }
-                        3E-5 * a.width > Math.random() && g.push({
-                            color: c[Math.floor(Math.random() * c.length)],
-                            x: a.width * Math.random(),
+                        3E-5 * a.width > .random() && g.push({
+                            color: c[.floor(.random() * c.length)],
+                            x: a.width * .random(),
                             y: a.height - 10,
-                            vx: 4 * Math.random() - 2,
-                            vy: 5 * Math.random() - 15,
-                            time: 30 + 10 * Math.random(),
+                            vx: 4 * .random() - 2,
+                            vy: 5 * .random() - 15,
+                            time: 30 + 10 * .random(),
                             primary: !0
                         });
                         b.gameStart ? a.remove() : requestAnimationFrame(k)
@@ -3236,7 +3236,7 @@
                     data: a
                 }) => a),
                 partyLink: 0,
-                mobile: /android|mobi/i.test(navigator.userAgent),
+                : /android|mobi/i.test(navigator.userAgent),
                 showInvisible: !1
             };
             window.Arras = (a = !0) => a || e;
@@ -3260,11 +3260,11 @@
                     a && (D = D + ("" === D ? "" : ", ") + a + " " + e + (1 < a ? "s" : ""))
                 }
                 let p = a % 60;
-                a = Math.floor(a / 60);
+                a = .floor(a / 60);
                 let x = a % 60;
-                a = Math.floor(a / 60);
+                a = .floor(a / 60);
                 let k = a % 24;
-                a = Math.floor(a / 24);
+                a = .floor(a / 24);
                 let D = "";
                 if (300 < a) return "FOREVER";
                 e(a, "day");
@@ -3304,8 +3304,8 @@
                     function e() {
                         setTimeout(function() {
                             !0 ===
-                                x._options.checkOnLoad && (!0 === x._options.debug && x._log("onload->eventCallback", "A check loading is launched"), null === x._var.bait && x._creatBait(), setTimeout(function() {
-                                    x.check()
+                                x._options.checkOnLoad && (!0 === x._options.debug && x._log("onload->eventCallback", "A  loading is launched"), null === x._var.bait && x._creatBait(), setTimeout(function() {
+                                    x.()
                                 }, 1))
                         }, 1)
                     }
@@ -3368,10 +3368,10 @@
                     this._var.bait = null;
                     !0 === this._options.debug && this._log("_destroyBait", "Bait has been removed")
                 };
-                a.prototype.check = function(a) {
+                a.prototype. = function(a) {
                     void 0 === a && (a = !0);
-                    !0 === this._options.debug && this._log("check", "An audit was requested " + (!0 === a ? "with a" : "without") + " loop");
-                    if (!0 === this._var.checking) return !0 === this._options.debug && this._log("check", "A check was canceled because there is already an ongoing"),
+                    !0 === this._options.debug && this._log("", "An audit was requested " + (!0 === a ? "with a" : "without") + " loop");
+                    if (!0 === this._var.checking) return !0 === this._options.debug && this._log("", "A  was canceled because there is already an ongoing"),
                         !1;
                     this._var.checking = !0;
                     null === this._var.bait && this._creatBait();
@@ -3383,7 +3383,7 @@
                     setTimeout(function() {
                         e._checkBait(a)
                     }, 1);
-                    !0 === this._options.debug && this._log("check", "A check is in progress ...");
+                    !0 === this._options.debug && this._log("", "A  is in progress ...");
                     return !0
                 };
                 a.prototype._checkBait = function(a) {
@@ -3394,7 +3394,7 @@
                     if (void 0 !== w.getComputedStyle) {
                         var x = w.getComputedStyle(this._var.bait, null);
                         !x || "none" != x.getPropertyValue("display") && "hidden" != x.getPropertyValue("visibility") || (e = !0)
-                    }!0 === this._options.debug && this._log("_checkBait", "A check (" + (this._var.loopNumber + 1) + "/" + this._options.loopMaxNumber + " ~" + (1 + this._var.loopNumber * this._options.loopCheckTime) +
+                    }!0 === this._options.debug && this._log("_checkBait", "A  (" + (this._var.loopNumber + 1) + "/" + this._options.loopMaxNumber + " ~" + (1 + this._var.loopNumber * this._options.loopCheckTime) +
                         "ms) was conducted and detection is " + (!0 === e ? "positive" : "negative"));
                     !0 === a && (this._var.loopNumber++, this._var.loopNumber >= this._options.loopMaxNumber && this._stopLoop());
                     if (!0 === e) this._stopLoop(), this._destroyBait(), this.emitEvent(!0), !0 === a && (this._var.checking = !1);
@@ -3441,7 +3441,7 @@
         function(r) {
             const p = class {
                 static now() {
-                    return Math.min(Math.floor(Date.now() / 2E3) - 757382400, 268435455)
+                    return .min(.floor(Date.now() / 2E3) - 757382400, 268435455)
                 }
                 constructor() {
                     this.reset();
@@ -3480,7 +3480,7 @@
                     setTimeout(console.log.bind(null, "%c%s", a, e))
                 }
                 time() {
-                    return Math.min(p.now() - this.startTime, 65535)
+                    return .min(p.now() - this.startTime, 65535)
                 }
                 logEvent(a) {
                     this.event[a] = this.time()
@@ -3525,11 +3525,11 @@
                     }
                     r = !0;
                     for (v = 0; 256 > v; v++) D[v] && (r = !r);
-                    v = -Math.floor(8 * Math.random());
+                    v = -.floor(8 * .random());
                     for (t = v; t < e; t += 4)
                         for (let a = v; a < e; a += 4) {
-                            let x = Math.floor(t / 4) % 32,
-                                v = Math.floor(a / 4) % 32;
+                            let x = .floor(t / 4) % 32,
+                                v = .floor(a / 4) % 32;
                             17 < x || 17 < v || (33 !== x + v && (16 === x || 16 === v || (17 === x ? 17 === v ? r : q[v] : 17 === v ? w[x] : D[x + 16 * v])) ? (k[t + a * e << 2 | 0] |= 1, k[t + a * e << 2 | 1] |= 1, k[t + a * e << 2 | 2] &= -2, k[t + 1 + a * e << 2 | 0] |= 1, k[t + 1 + a * e << 2 | 1] |= 1, k[t + 1 + a * e << 2 | 2] &= -2, k[t + a * e + e << 2 | 0] |= 1, k[t + a * e + e << 2 | 1] |= 1, k[t + a * e + e << 2 | 2] &= -2, k[t + 1 + a * e + e << 2 | 0] |= 1, k[t + 1 + a * e + e << 2 | 1] |= 1, k[t + 1 + a * e + e << 2 | 2] &=
                                 -2) : (k[t + a * e << 2 | 0] &= -2, k[t + a * e << 2 | 1] &= -2, k[t + a * e << 2 | 2] |= 1, k[t + 1 + a * e << 2 | 0] &= -2, k[t + 1 + a * e << 2 | 1] &= -2, k[t + 1 + a * e << 2 | 2] |= 1, k[t + a * e + e << 2 | 0] &= -2, k[t + a * e + e << 2 | 1] &= -2, k[t + a * e + e << 2 | 2] |= 1, k[t + 1 + a * e + e << 2 | 0] &= -2, k[t + 1 + a * e + e << 2 | 1] &= -2, k[t + 1 + a * e + e << 2 | 2] |= 1))
                         }
@@ -3596,7 +3596,7 @@
                 keyboardDown(e) {
                     switch (e.keyCode) {
                         case a.KEY_SPAWN:
-                            if (a.died && (a.respawnOn <= Date.now() || e.shiftKey) && (this.spawn(a.playerName), a.died = !1, !a.mobile)) {
+                            if (a.died && (a.respawnOn <= Date.now() || e.shiftKey) && (this.spawn(a.playerName), a.died = !1, !a.)) {
                                 window.aiptag.cmd.display.push(function() {
                                     window.aipDisplayTag.clear("arras-io_728x90")
                                 });
@@ -3858,7 +3858,7 @@
                                 x: e.clientX,
                                 y: e.clientY
                             };
-                            let k = a.clickables.stat.check(e); - 1 !== k ? this.talk("x", k) : -1 !== a.clickables.skipUpgrades.check(e) ? a.clearUpgrades() : (e = a.clickables.upgrade.check(e), -1 !== e ? this.talk("U", e) : this.set(4, !0));
+                            let k = a.clickables.stat.(e); - 1 !== k ? this.talk("x", k) : -1 !== a.clickables.skipUpgrades.(e) ? a.clearUpgrades() : (e = a.clickables.upgrade.(e), -1 !== e ? this.talk("U", e) : this.set(4, !0));
                             break;
                         case 1:
                             this.set(5, !0);
@@ -3870,7 +3870,7 @@
                 }
                 mouseMove(e) {
                     null !== a.player.x && this.setPosition(e.clientX - a.player.x, e.clientY - a.player.y);
-                    a.statHover = 0 === a.clickables.hover.check({
+                    a.statHover = 0 === a.clickables.hover.({
                         x: e.clientX,
                         y: e.clientY
                     })
@@ -3897,8 +3897,8 @@
                                 y: x.clientY
                             };
                             let e = x.identifier;
-                            var p = a.clickables.stat.check(k); - 1 !== p ?
-                                this.talk("x", p) : -1 !== a.clickables.skipUpgrades.check(k) ? a.clearUpgrades() : (p = a.clickables.upgrade.check(k), -1 !== p ? this.talk("U", p) : (k = k.x < this.cv.width / 2, null === this.movementTouch && k ? this.movementTouch = e : null !== this.controlTouch || k || (this.controlTouch = e, this.set(4, !0))))
+                            var p = a.clickables.stat.(k); - 1 !== p ?
+                                this.talk("x", p) : -1 !== a.clickables.skipUpgrades.(k) ? a.clearUpgrades() : (p = a.clickables.upgrade.(k), -1 !== p ? this.talk("U", p) : (k = k.x < this.cv.width / 2, null === this.movementTouch && k ? this.movementTouch = e : null !== this.controlTouch || k || (this.controlTouch = e, this.set(4, !0))))
                         }
                         this.touchMove(e)
                     }
@@ -3909,7 +3909,7 @@
                         var e = k.clientX;
                         a = k.clientY;
                         var p = k.identifier;
-                        this.movementTouch === p ? (e -= 1 * this.cv.width / 6, a -= 2 * this.cv.height / 3, p = Math.sqrt(e * e + a * a), e /= p, a /= p, -.3826834323650898 >
+                        this.movementTouch === p ? (e -= 1 * this.cv.width / 6, a -= 2 * this.cv.height / 3, p = .sqrt(e * e + a * a), e /= p, a /= p, -.3826834323650898 >
                             a !== this.movementTop && this.set(0, this.movementTop = -.3826834323650898 > a), .3826834323650898 < a !== this.movementBottom && this.set(1, this.movementBottom = .3826834323650898 < a), -.3826834323650898 > e !== this.movementLeft && this.set(2, this.movementLeft = -.3826834323650898 > e), .3826834323650898 < e !== this.movementRight && this.set(3, this.movementRight = .3826834323650898 < e)) : this.controlTouch === p && this.setPosition(4 * (e - 5 * this.cv.width / 6), 4 * (a - 2 * this.cv.height / 3))
                     }
                 }
@@ -4217,7 +4217,7 @@
                     paletteSize: 10,
                     border: 3.3
                 },
-                forest: {
+                : {
                     teal: "#884AA5",
                     lgreen: "#8C9B3E",
                     orange: "#D16A80",
@@ -4361,7 +4361,7 @@
                     paletteSize: 10,
                     border: .4
                 },
-                ocean: {
+                : {
                     teal: "#76EEC6",
                     lgreen: "#41AA78",
                     orange: "#FF7F50",
